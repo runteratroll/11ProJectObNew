@@ -6,6 +6,8 @@ public class CameraRotation : MonoBehaviour
 {
     [SerializeField] Camera camera;
     public float moveSpeed = 5f;
+
+    public static bool is4Round = false;
     // Start is called before the first frame update
     void Start()
     {

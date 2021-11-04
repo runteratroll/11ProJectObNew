@@ -11,7 +11,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] GameObject go_Ui;
     [SerializeField] ScoreManager theSM;
 
-    [SerializeField] Camera camera;
+    [SerializeField] CameraRotation camera;
     [SerializeField] Rigidbody2D playerRigid;
     [SerializeField] GameObject[] go_Stages;
     [SerializeField] StatsManager stats;
@@ -33,8 +33,10 @@ public class StageManager : MonoBehaviour
     {
         if (currentStage < go_Stages.Length - 1)
         {
+
             
 
+            CameraRotation.is4Round = false;
             PlayerController.canMove = false;
             stats.currentHp = 3;
             stats.UpdateHpStatus();
@@ -42,13 +44,19 @@ public class StageManager : MonoBehaviour
 
             playerRigid.gameObject.transform.position = tf_OriginPos.position;
             go_Stages[currentStage++].SetActive(false); //ÇöÀçÈÄ ++
+
+            if (currentStage == 5)
+                CameraRotation.is4Round = true;
+            playerRigid.velocity = Vector2.zero;
             go_Stages[currentStage].SetActive(true);
 
+
+            
             //if(currentStage == 6)
             //{
             //    camera.orthographicSize = 30;
             //}
-            
+
             blockArray = FindObjectsOfType<Block>();
             
 

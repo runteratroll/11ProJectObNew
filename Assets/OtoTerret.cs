@@ -12,6 +12,8 @@ public class OtoTerret : MonoBehaviour
     Collider2D contect;
     [SerializeField] float delay;
     Vector3 dir;
+
+    public int damage = 1;
     private void Update()
     {
         
@@ -20,6 +22,14 @@ public class OtoTerret : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Shoot());
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.transform.GetComponent<StatsManager>().DecreaseHp(damage);
+        }
     }
 
     IEnumerator Shoot()

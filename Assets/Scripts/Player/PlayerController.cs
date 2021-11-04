@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour
 
             moveSpeed = currentSpeed;
             m_rigid2D.velocity = m_dir * moveSpeed;
-            Invoke(nameof(BlockW), 0.2f);
+            Invoke(nameof(BlockW), 0.001f);
 
 
 
@@ -200,13 +200,12 @@ public class PlayerController : MonoBehaviour
             moveSpeed -= 3f;
             Debug.Log("Wall +" + moveSpeed);
 
-            Debug.Log(m_rigid2D.velocity);
-            Debug.Log(_wall1Normal);
-            Debug.Log(m_dir);
+           
             m_rigid2D.velocity = m_dir * moveSpeed;
-            Invoke(nameof(MoveSPeed), 0.3f);
+            Invoke(nameof(MoveSPeed), 0.001f);
         }
 
+        
         ContactPoint2D contactPoint2D = collision.contacts[0]; //가장 가까운 접촉면
                                                                //충돌한 객체의 '접촉면'에 대한 정보가 담긴 클래스 충돌한 객체의 접촉면 정보가 담김
         SoundManager.instance.PlaySE("Block"); //레이저총이라면 이효과음이 나므로 변해하 하면 변수
@@ -224,6 +223,17 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Zone"))
         {
             moveSpeed = 60;
+            cameraShacke.GetComponent<Camera>().orthographicSize = 17;
+        }
+        if(collision.gameObject.CompareTag("Zone2"))
+        {
+            moveSpeed = 100;
+            cameraShacke.GetComponent<Camera>().orthographicSize = 30;
+        }
+        if (collision.gameObject.CompareTag("Zone3"))
+        {
+            moveSpeed = 150;
+           
         }
     }
     void MoveSPeed()

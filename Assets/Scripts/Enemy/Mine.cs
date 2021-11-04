@@ -10,7 +10,7 @@ public class Mine : MonoBehaviour
     [Range(0,1)]
     [SerializeField] float moveSpeed;
 
-    [SerializeField] int damage;
+    [SerializeField] int damage = 1;
     [SerializeField] GameObject Effect;
     [SerializeField] int hp;
 
@@ -48,6 +48,7 @@ public class Mine : MonoBehaviour
     {
         if(collision.transform.CompareTag("Player"))
         {
+            
             if (isHit) return;
             isHit = true;
             Debug.Log("ºÎµúÈû");
@@ -89,8 +90,9 @@ public class Mine : MonoBehaviour
        
         var clone = Instantiate(Effect, transform.position, Quaternion.identity);
 
-        Destroy(clone, 0.5f);
+        
         gameObject.SetActive(false);
+        Destroy(clone, 0.5f);
     }
 
     //private void OnDisable()
