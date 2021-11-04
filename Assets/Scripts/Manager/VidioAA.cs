@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraRotation : MonoBehaviour
+public class VidioAA : MonoBehaviour
 {
-    [SerializeField] Camera camera;
-    public float moveSpeed = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +13,6 @@ public class CameraRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        camera.transform.RotateAround(transform.position, new Vector3(0,0,1f), 
-        Time.deltaTime * moveSpeed);
+        
     }
 }

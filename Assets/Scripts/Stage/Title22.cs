@@ -16,4 +16,7 @@ public class Title22 : MonoBehaviour
     {
         Application.Quit();
     }
+
+
+    
 }

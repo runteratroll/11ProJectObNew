@@ -16,6 +16,6 @@ public class FloatingManager : MonoBehaviour
     public void CreateFloatingText(Vector3 pos, string _text)
     {
         GameObject clone = Instantiate(go_Prefab_FloatingText, pos, go_Prefab_FloatingText.transform.rotation);
-        clone.GetComponentInChildren<Text>().text = _text;
+        clone.GetComponentInChildren<TextMeshProUGUI>().text = _text;
     }
 }

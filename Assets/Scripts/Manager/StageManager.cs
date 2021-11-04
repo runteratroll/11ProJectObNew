@@ -44,10 +44,10 @@ public class StageManager : MonoBehaviour
             go_Stages[currentStage++].SetActive(false); //ÇöÀçÈÄ ++
             go_Stages[currentStage].SetActive(true);
 
-            if(currentStage == 6)
-            {
-                camera.orthographicSize = 30;
-            }
+            //if(currentStage == 6)
+            //{
+            //    camera.orthographicSize = 30;
+            //}
             
             blockArray = FindObjectsOfType<Block>();
             
